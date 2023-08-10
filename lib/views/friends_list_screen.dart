@@ -23,7 +23,7 @@ class FriendListScreen extends GetView<FriendListController> {
                 itemCount: controller.friendList.length,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: ()=>Get.to(()=>const FriendScreen()),
+                    onTap: ()=>Get.to(()=> FriendScreen(friend:controller.friendList[index]!)),
                       child: FriendListWidget(friend: controller.friendList[index]));
                 },
               ),
