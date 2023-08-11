@@ -7,14 +7,13 @@ import 'package:get/get.dart';
 class FriendListController extends GetxController {
   RxBool isDataLoading = false.obs;
   List<Result> friendList = <Result>[];
+  var users = <Result>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    log("hello");
+    // fetchRandomUsers();
     makeApiCalls(10);
-    // getFriendList();
-    // List.generate(10, (index) => getFriendList());
 
   }
 
@@ -41,6 +40,23 @@ class FriendListController extends GetxController {
      }
     log("friendList:${friendList.length}");
   }
+
+  Future<void> fetchRandomUsers() async {
+    try {
+      isDataLoading.value =true;
+      final dio = Dio();
+      final response = await dio.get('https://randomuser.me/api/?results=10');
+      final results = response.data['results'] as List<dynamic>;
+      log('friend:$results');
+      final List<Result> userList = results.map((user) => Result.fromJson(user)).toList();
+      users.value = userList;
+      isDataLoading.value = false;
+    } catch (error) {
+      log('Error fetching users: $error');
+    }
+  }
+
+
   Future<void> makeApiCalls(int times) async {
     for (int i = 0; i < times; i++) {
       await getFriendList();

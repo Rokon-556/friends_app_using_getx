@@ -19,6 +19,7 @@
             <data android:scheme="mailto" />
         </intent>
     </queries>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:label="friends_app"
