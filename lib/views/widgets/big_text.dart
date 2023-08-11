@@ -6,13 +6,15 @@ class BigText extends StatelessWidget {
   double textSize;
   TextOverflow textOverflow;
   TextAlign align;
+  double lineHeight ;
   BigText(
       {super.key,
         required this.text,
         this.color = const Color(0xFF332d2b),
         this.textSize = 0,
         this.textOverflow = TextOverflow.ellipsis,
-        this.align = TextAlign.start
+        this.align = TextAlign.start,
+        this.lineHeight = 1.2
       });
 
   @override
@@ -24,8 +26,9 @@ class BigText extends StatelessWidget {
       maxLines: 3,
       style: TextStyle(
           color: color,
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontSize: textSize,
+          fontWeight: FontWeight.w500,
+          height: lineHeight
           ),
     );
   }

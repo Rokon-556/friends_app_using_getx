@@ -35,6 +35,7 @@ class FriendListWidget extends StatelessWidget {
             Expanded(
               child: BigText(
                 align: TextAlign.center,
+                textSize: 14,
                 color: Colors.white,
                   text:
                       '${friend.name?.first ?? ''} ${friend.name?.last ?? ''}\n'),

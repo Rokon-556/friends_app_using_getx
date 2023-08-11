@@ -21,8 +21,11 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
         scaffoldBackgroundColor: Colors.white,
-        cardColor: Color(0xff32c48e)
-        // primaryColor: const Color(0XFFFF8C1A),
+        cardColor: Color(0xff32c48e),
+        progressIndicatorTheme: ProgressIndicatorThemeData(
+          color: Color(0xff32c48e)
+        ),
+
       ),
       initialRoute: AppRoutes.friend_list_screen,
       initialBinding: FriendListBinding(),

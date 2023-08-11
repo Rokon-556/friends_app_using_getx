@@ -5,6 +5,5 @@ class FriendListBinding extends Bindings{
   @override
   void dependencies() {
     Get.put(FriendListController());
-    // Get.lazyPut<FriendListController>(() => FriendListController());
   }
 }
