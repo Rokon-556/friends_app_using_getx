@@ -16,10 +16,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Friends',
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          color: Color(0XFFFF8C1A),
+        appBarTheme:  AppBarTheme(
+          color: Color(0xff26774c),
           centerTitle: true,
         ),
+        scaffoldBackgroundColor: Colors.white,
+        cardColor: Color(0xff32c48e)
         // primaryColor: const Color(0XFFFF8C1A),
       ),
       initialRoute: AppRoutes.friend_list_screen,

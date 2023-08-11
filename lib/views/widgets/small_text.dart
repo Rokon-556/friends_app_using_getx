@@ -8,7 +8,7 @@ class SmallText extends StatelessWidget {
   SmallText({
     super.key,
     required this.text,
-    this.color = const Color(0xFFccc7c5),
+    this.color =  Colors.white,
     this.textSize = 12,
     this.height = 1.2,
   });
@@ -20,8 +20,8 @@ class SmallText extends StatelessWidget {
       style: TextStyle(
           color: color,
           fontSize: textSize,
-          height: height,
-          fontFamily: 'Roboto'),
+          fontWeight: FontWeight.w500,
+          height: height),
     );
   }
 }

@@ -15,7 +15,7 @@ class AppPages{
     ),
     GetPage(
       name: AppRoutes.friend_screen,
-      page: () => const FriendScreen(),
+      page: () => FriendScreen(),
       binding: FriendBinding(),
     ),
   ];

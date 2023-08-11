@@ -13,40 +13,36 @@ class FriendListWidget extends StatelessWidget {
     return Card(
       elevation: 1,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipOval(
               child: CachedNetworkImage(
-                height: 50,
-                width: 50,
+                height: 80,
+                width: 80,
                 fit: BoxFit.cover,
                 imageUrl: friend.picture?.thumbnail ?? '',
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    CircularProgressIndicator(value: downloadProgress.progress),
+                    Center(child: CircularProgressIndicator(value: downloadProgress.progress,color: Colors.white,)),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
-            SizedBox(
-              width: 20,
+            const SizedBox(
+              height: 15,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                BigText(
-                    text:
-                        '${friend.name?.first ?? ''} ${friend.name?.last ?? ''}'),
-                SizedBox(
-                  height: 10,
-                ),
-                SmallText(text: friend.location?.country ?? ''),
-              ],
+            Expanded(
+              child: BigText(
+                align: TextAlign.center,
+                color: Colors.white,
+                  text:
+                      '${friend.name?.first ?? ''} ${friend.name?.last ?? ''}\n'),
             ),
-            Spacer(),
-            Icon(
-              Icons.double_arrow,
-              size: 16,
-            )
+            const SizedBox(
+              height: 10,
+            ),
+            SmallText(text: friend.location?.country ?? ''),
           ],
         ),
       ),
