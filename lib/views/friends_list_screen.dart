@@ -22,23 +22,31 @@ class FriendListScreen extends GetView<FriendListController> {
             : Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 5.0,
-                      crossAxisSpacing: 5.0,
-                      mainAxisExtent: Get.height / 3.8),
-                  itemCount: controller.friendList.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () => Get.to(
-                        () =>
-                            FriendScreen(friend: controller.friendList[index]),
+                child: OrientationBuilder(
+                  builder: ((context, orientation) {
+                    return GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount:
+                            orientation == Orientation.portrait ? 2 : 3,
+                        mainAxisSpacing: 5.0,
+                        crossAxisSpacing: 5.0,
+                        mainAxisExtent: orientation == Orientation.portrait
+                            ? Get.height / 3.8
+                            : Get.height / 2,
                       ),
-                      child: FriendListWidget(
-                          friend: controller.friendList[index]),
+                      itemCount: controller.friendList.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () => Get.to(
+                            () => FriendScreen(
+                                friend: controller.friendList[index]),
+                          ),
+                          child: FriendListWidget(
+                              friend: controller.friendList[index]),
+                        );
+                      },
                     );
-                  },
+                  }),
                 ),
               ),
       ),
